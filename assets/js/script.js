@@ -16,6 +16,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+/**
+ * Enables user to submit by pressing 'Enter'
+ */
+document.getElementById('answer-box').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        checkAnswer();
+    }
+}) // Closing bracket can be placed after curly braces
+
 runGame("addition");
 
 
@@ -25,6 +34,9 @@ runGame("addition");
  */
 
 function runGame(gameType) {
+
+    document.getElementById('answer-box').value = '';
+    document.getElementById('answer-box').focus();
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
